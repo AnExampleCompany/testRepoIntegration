@@ -5,6 +5,8 @@ on: [push]
 jobs:
   vulnerabilities-scan:
     runs-on: ubuntu-latest
+    container:
+      image: debricked/cli:latest-resolution-debian
 
     steps:
       - name: Run Debricked Scan
