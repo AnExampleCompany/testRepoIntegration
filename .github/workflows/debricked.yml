@@ -36,12 +36,14 @@ jobs:
       
       # The base "debricked scan" does all this with sane default values.
       - name: Run Scan
+        if: success() || failure()
         run: |
           debricked scan
         env:
           DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
 
       - name: Run Scan staging
+        if: success() || failure()
         run: |
           debricked scan
         env:
