@@ -40,3 +40,10 @@ jobs:
           debricked scan
         env:
           DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN }}
+
+      - name: Run Scan staging
+        run: |
+          debricked scan
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN_STAGING }}
+          DEBRICKED_URI: 'https://staging.debricked.com'
