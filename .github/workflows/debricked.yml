@@ -49,3 +49,11 @@ jobs:
         env:
           DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN_STAGING }}
           DEBRICKED_URI: 'https://staging.debricked.com'
+
+      - name: Run Scan review app
+        if: success() || failure()
+        run: |
+          debricked scan
+        env:
+          DEBRICKED_TOKEN: ${{ secrets.DEBRICKED_TOKEN_REVIEW }}
+          DEBRICKED_URI: 'https://review-5832-overv-zu221v.review.debricked.dev'
